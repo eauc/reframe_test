@@ -11,22 +11,15 @@
 
   :source-paths ["src/clj"]
 
-  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
-                                    "test/js"]
+  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
   :figwheel {:css-dirs ["resources/public/css"]}
 
-  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
-
   :profiles
   {:dev
-   {:dependencies [
-                   [figwheel-sidecar "0.5.4-3"]
-                   [com.cemerick/piggieback "0.2.1"]]
+   {:dependencies []
 
-    :plugins      [[lein-figwheel "0.5.4-3"]
-                   [lein-doo "0.1.6"]
-                   [cider/cider-nrepl "0.13.0"]]
+    :plugins      [[lein-figwheel "0.5.4-3"]]
     }}
 
   :cljsbuild
@@ -48,11 +41,6 @@
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
 
-    {:id           "test"
-     :source-paths ["src/cljs" "test/cljs"]
-     :compiler     {:output-to     "resources/public/js/compiled/test.js"
-                    :main          reframe.runner
-                    :optimizations :none}}
     ]}
 
   )
