@@ -4,6 +4,7 @@
               [devtools.core :as devtools]
               [reframe.handlers]
               [reframe.subs]
+              [reframe.routes :as routes]
               [reframe.views :as views]
               [reframe.config :as config]))
 
@@ -18,6 +19,7 @@
                   (.getElementById js/document "app")))
 
 (defn ^:export init []
+  (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)
   (mount-root))
