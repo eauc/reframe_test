@@ -47,11 +47,17 @@
                     :optimizations   :advanced
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
-    {:id           "test"
-     :source-paths ["src/cljs" "test/cljs"]
-     :compiler     {:output-to     "resources/public/js/compiled/test.js"
-                    :main          reframe.runner
-                    :optimizations :none}}
+    {:id "test"
+     :source-paths ["src" "test"]
+     :figwheel     {:on-jsload "reframe.test-runner/runner"}
+     :compiler {:output-to "resources/public/js/test/test.js"
+                :output-dir "resources/public/js/test/out"
+                :optimizations :none
+                :main reframe.test-runner
+                :asset-path "js/test/out"
+                :source-map true
+                ;; :source-map-timestamp true
+                :cache-analysis true }}
     ]}
 
   :main reframe.server

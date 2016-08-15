@@ -4,4 +4,4 @@
 
 (deftest fake-test
   (testing "fake description"
-    (is (= 1 2))))
+    (is (= { :id 1 } { :id 2 }))))
