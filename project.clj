@@ -58,14 +58,27 @@
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
 
-    {:id "devcards"
+    {:id           "devcards"
      :source-paths ["src/cljs"]
-     :figwheel { :devcards true } ;; <- note this
-     :compiler {:main    "reframe.core"
-                :asset-path "js/compiled/devcards_out"
-                :output-to  "resources/public/js/compiled/reframe_devcards.js"
-                :output-dir "resources/public/js/compiled/devcards_out"
-                :source-map-timestamp true }}
+     :figwheel     { :devcards true }
+     :compiler     {:main                 reframe.core
+                    :output-to            "resources/public/js/compiled/reframe_devcards.js"
+                    :output-dir           "resources/public/js/compiled/devcards_out"
+                    :asset-path           "js/compiled/devcards_out"
+                    :source-map-timestamp true }}
+
+    {:id           "test"
+     :source-paths ["src" "test"]
+     :figwheel     {:on-jsload "reframe.test-runner/runner"}
+     :compiler     {:main          reframe.test-runner
+                    :output-to     "resources/public/js/compiled/test.js"
+                    :output-dir    "resources/public/js/compiled/test_out"
+                    :optimizations :none
+                    :asset-path    "js/compiled/test_out"
+                    :source-map     true
+                    ;; :source-map-timestamp true
+                    :cache-analysis true }}
+
     ]}
 
   :main reframe.server
