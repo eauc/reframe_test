@@ -13,14 +13,16 @@
                  [ring "1.4.0"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
-            [lein-garden "0.2.8"]]
+            [lein-garden "0.2.8"]
+            [lein-npm "0.5.0"]
+            [lein-bower "0.5.1"]]
 
   :min-lein-version "2.5.3"
 
   :source-paths ["src/clj"]
 
-  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"
-                                    "resources/public/css"]
+  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target" "node_modules"
+                                    "resources/public/css" "resources/public/lib"]
 
   :figwheel {:css-dirs ["resources/public/css"]
              :ring-handler reframe.handler/dev-handler}
@@ -30,6 +32,10 @@
                      :stylesheet   reframe.css/screen
                      :compiler     {:output-to     "resources/public/css/screen.css"
                                     :pretty-print? true}}]}
+
+  :node-dependencies [[bower "1.7.9"]]
+  :bower {:directory "resources/public/lib"}
+  :bower-dependencies [[normalize.css "4.2.0"]]
 
   :profiles
   {:dev
@@ -87,5 +93,9 @@
 
   :uberjar-name "reframe.jar"
 
-  :prep-tasks [["cljsbuild" "once" "min"]["garden" "once"] "compile"]
+  :prep-tasks [["npm" "install"]
+               ["bower" "install"]
+               ["cljsbuild" "once" "min"]
+               ["garden" "once"]
+               "compile"]
   )
