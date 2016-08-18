@@ -1,7 +1,9 @@
 (ns reframe.components.menu.styles
   (:require [reframe.styles.break :refer [break]]
             [garden.units :as units]
-            [garden.stylesheet :refer [at-media]]))
+            [garden.stylesheet :refer [at-media]]
+            [reframe.styles.misc :as misc]
+            [reframe.styles.color :refer [color]]))
 
 (def toggle-size (units/em 2.5))
 
@@ -12,27 +14,22 @@
                :right "3px"
                :height toggle-size
                :width toggle-size
-               :background-color "white"
-               :color "#333"
-               :border "1px solid #666"
                :border-radius (units/em-div toggle-size 2)
-               :box-shadow "0px 1px 3px 0px #999"
+               :box-shadow misc/default-shadow
                :z-index 1000}
-    [:&:hover {:background-color "#CCC"}]
-    [:&:focus {:outline "none"}]
     (at-media
      {:min-width (:tablet break)}
      [:& {:display "none"}]
     )]
    [:div {:display "none"
           :padding "0.5em"}
-    [:&:hover {:background-color "#CCC"}]
+    [:&:hover {:background-color (:hover color)}]
     (at-media
      {:min-width (:tablet break)}
      [:& {:display "block" }]
      )]
    [:&.show {:position "relative"
-             :border-top "1px solid #999"}
+             :border-top misc/default-border}
     [:.reframe-menu-toggle {:top 0
                             :margin-top (units/em- 0 (units/em-div toggle-size 2))}]
     [:div {:display "block"}]]

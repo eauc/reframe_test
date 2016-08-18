@@ -4,16 +4,17 @@
             [reframe.components.auth.sub]
             [reframe.components.auth.handler]))
 
+(defn on-login [result]
+  (let [token (:idToken (js->clj result :keywordize-keys true))]
+    (re-frame/dispatch [:auth-login token])))
+
 (defn login []
   (let [lock (new js/Auth0Lock
                   (get-in db/default-db [:auth :client-id])
                   (get-in db/default-db [:auth :domain])
                   (clj->js {:ui {:autoClose true}
                             :auth {:loginAfterSignup false
-                                   :redirect false}}))
-        on-login (fn [result]
-                   (let [token (:idToken (js->clj result :keywordize-keys true))]
-                     (re-frame/dispatch [:auth-login token])))]
+                                   :redirect false}}))]
     (. lock (on "authenticated" on-login))
     (. lock (show))))
 
