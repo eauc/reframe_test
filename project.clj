@@ -29,13 +29,14 @@
 
   :garden {:builds [{:id           "screen"
                      :source-paths ["src/cljs"]
-                     :stylesheet   reframe.css/screen
+                     :stylesheet   reframe.styles/screen
                      :compiler     {:output-to     "resources/public/css/screen.css"
                                     :pretty-print? true}}]}
 
   :node-dependencies [[bower "1.7.9"]]
   :bower {:directory "resources/public/lib"}
-  :bower-dependencies [[normalize.css "4.2.0"]]
+  :bower-dependencies [[normalize.css "~4.2.0"]
+                       [font-awesome "~4.6.0"]]
 
   :profiles
   {:dev

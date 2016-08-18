@@ -2,10 +2,8 @@
     (:require [reagent.core :as reagent]
               [re-frame.core :as re-frame]
               [devtools.core :as devtools]
-              [reframe.handlers]
-              [reframe.subs]
               [reframe.routes :as routes]
-              [reframe.views :as views]
+              [reframe.components.app :as app]
               [reframe.config :as config])
     (:require-macros [devcards.core :refer [defcard defcard-rg]]))
 
@@ -16,7 +14,7 @@
     (devtools/install!)))
 
 (defn mount-root []
-  (reagent/render [views/main-panel]
+  (reagent/render [app/view]
                   (.getElementById js/document "app")))
 
 (defcard-rg my-first-card "## Example markdown"

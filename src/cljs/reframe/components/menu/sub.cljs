@@ -1,13 +1,8 @@
-(ns reframe.subs
+(ns reframe.components.menu.sub
     (:require-macros [reagent.ratom :refer [reaction]])
     (:require [re-frame.core :as re-frame]))
 
 (re-frame/register-sub
- :name
- (fn [db]
-   (reaction (:name @db))))
-
-(re-frame/register-sub
- :active-panel
+ :menu-show
  (fn [db _]
-   (reaction (:active-panel @db))))
+   (reaction (get-in @db [:menu :show]))))
