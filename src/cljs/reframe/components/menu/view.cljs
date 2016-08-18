@@ -11,16 +11,16 @@
     :tasks tasks/menu
     []))
 
-(defn menu-toggle []
+(defn menu-toggle [show]
   [:button.reframe-menu-toggle
    {:on-click #(re-frame/dispatch [:menu-toggle])}
-   [:span.fa.fa-ellipsis-v]
+   [:span.fa {:class (if show "fa-chevron-down" "fa-chevron-up")}]
    ])
 
 (defn show-menu [page show]
   (into [:div.reframe-menu
          {:class (if show "show")}
-         [menu-toggle]
+         [menu-toggle show]
          ] (menu page)))
 
 (defn view []
