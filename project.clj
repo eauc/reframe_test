@@ -36,7 +36,8 @@
   :node-dependencies [[bower "1.7.9"]]
   :bower {:directory "resources/public/lib"}
   :bower-dependencies [[normalize.css "~4.2.0"]
-                       [font-awesome "~4.6.0"]]
+                       [font-awesome "~4.6.0"]
+                       [auth0-lock "~10.1.0"]]
 
   :profiles
   {:dev
@@ -62,6 +63,7 @@
      :compiler     {:main            reframe.core
                     :output-to       "resources/public/js/compiled/app.js"
                     :optimizations   :advanced
+                    :externs         ["src/cljs/externs/auth0-lock.js"]
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
 
