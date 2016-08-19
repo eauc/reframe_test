@@ -3,6 +3,7 @@
 /*-init.clj
 /.lein-env
 /node_modules
+/resources/public/service-worker.js
 /resources/public/css
 /resources/public/js/compiled
 /resources/public/lib

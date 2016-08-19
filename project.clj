@@ -18,7 +18,8 @@
             [lein-garden "0.2.8"]
             [lein-npm "0.5.0"]
             [lein-bower "0.5.1"]
-            [lein-environ "1.1.0"]]
+            [lein-environ "1.1.0"]
+            [lein-shell "0.5.0"]]
 
   :min-lein-version "2.5.3"
 
@@ -36,7 +37,8 @@
                      :compiler     {:output-to     "resources/public/css/screen.css"
                                     :pretty-print? true}}]}
 
-  :node-dependencies [[bower "1.7.9"]]
+  :node-dependencies [[bower "1.7.9"
+                       sw-precache "4.0.0"]]
   :bower {:directory "resources/public/lib"}
   :bower-dependencies [[normalize.css "~4.2.0"]
                        [font-awesome "~4.6.0"]
@@ -70,7 +72,9 @@
      :compiler     {:main            reframe.core
                     :output-to       "resources/public/js/compiled/app.js"
                     :optimizations   :advanced
-                    :externs         ["src/cljs/externs/auth0-lock.js"]
+                    :externs         ["src/cljs/externs/auth0-lock.js",
+                                      "resources/public/js/register_worker.js"]
+                    :closure-warnings {:externs-validation :off}
                     :closure-defines {goog.DEBUG false}
                     :pretty-print    false}}
 
@@ -107,5 +111,6 @@
                ["bower" "install"]
                ["cljsbuild" "once" "min"]
                ["garden" "once"]
+               ["shell" "bin/build-client-sw-precache"]
                "compile"]
   )

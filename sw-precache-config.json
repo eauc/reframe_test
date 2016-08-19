@@ -1,0 +1,19 @@
+{
+  "verbose": true,
+  "root": "resources/public",
+  "cacheId": "reframe-test",
+  "ignoreUrlParametersMatching": [ "/./" ],
+  "dynamicUrlToDependencies": {
+    "/": ["resources/public/index.html"]
+  },
+  "staticFileGlobs": [
+    "resources/public/index.html",
+    "resources/public/css/**.css",
+    "resources/public/js/*.js",
+    "resources/public/js/compiled/*.js",
+    "resources/public/lib/normalize.css/normalize.css",
+    "resources/public/lib/font-awesome/{css,fonts}/**",
+    "resources/public/lib/auth0-lock/build/lock.min.js",
+    "resources/public/vendor/**"
+  ]
+}

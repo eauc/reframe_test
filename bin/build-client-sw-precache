@@ -1,0 +1,2 @@
+# node_modules/sw-precache/cli.js --verbose --root=resources/public --cacheId=reframe-test --staticFileGlobs='resources/public/{css/**.css,js/compiled/*.js*,index.html}'
+node_modules/sw-precache/cli.js --config=sw-precache-config.json --verbose

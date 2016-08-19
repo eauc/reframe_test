@@ -25,4 +25,6 @@
   (routes/app-routes)
   (re-frame/dispatch-sync [:initialize-db])
   (dev-setup)
+  (if (not config/debug?)
+    (. js/window (offlineRegisterWorker)))
   (mount-root))
