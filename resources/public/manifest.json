@@ -1,0 +1,13 @@
+{
+  "name": "ReframeTest",
+  "short_name": "ReframeTest",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#fff",
+  "description": "A simply Reframe test app.",
+  "icons": [{
+    "src": "images/homescreen100.png",
+    "sizes": "100x100",
+    "type": "image/png"
+  }]
+}
