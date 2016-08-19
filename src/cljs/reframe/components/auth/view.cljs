@@ -14,7 +14,8 @@
                   (get-in db/default-db [:auth :domain])
                   (clj->js {:ui {:autoClose true}
                             :auth {:loginAfterSignup false
-                                   :redirect false}}))]
+                                   :redirect false
+                                   :params {:scope "openid email permissions"}}}))]
     (. lock (on "authenticated" on-login))
     (. lock (show))))
 

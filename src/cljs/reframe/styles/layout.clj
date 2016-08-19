@@ -14,9 +14,11 @@
              :flex-grow 1
              :position "relative"}
     [:&-wrap {:position "absolute"
+              :box-sizing "border-box"
               :width "100%"
               :height "100%"
-              :overflow-y "auto"}]]
+              :overflow-y "auto"
+              :padding "3px"}]]
    (at-media {:min-width (:pc break)}
     [:&-content {:flex-direction "row"}]
     [:&-menu {:order 0}]

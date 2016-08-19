@@ -10,12 +10,15 @@
                  [ns-tracker "0.3.0"]
                  [compojure "1.5.0"]
                  [yogthos/config "0.8"]
-                 [ring "1.4.0"]]
+                 [ring "1.4.0"]
+                 [cljs-ajax "0.5.8"]
+                 [environ "1.1.0"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
             [lein-garden "0.2.8"]
             [lein-npm "0.5.0"]
-            [lein-bower "0.5.1"]]
+            [lein-bower "0.5.1"]
+            [lein-environ "1.1.0"]]
 
   :min-lein-version "2.5.3"
 
@@ -39,11 +42,15 @@
                        [font-awesome "~4.6.0"]
                        [auth0-lock "~10.1.0"]]
 
+  :env {:auth-client-id "CKGG9bWf1UJvwTrU0Ya8V8tUCN7vK27C"
+        :auth-domain "eauc.eu.auth0.com"
+        :tasks-url "https://eauc-ntask-api.herokuapp.com/tasks"}
+
   :profiles
   {:dev
    {:dependencies []
-
     :plugins      [[lein-figwheel "0.5.4-3"]]
+    :env {:tasks-url "http://localhost:4000/tasks"}
     }}
 
   :cljsbuild

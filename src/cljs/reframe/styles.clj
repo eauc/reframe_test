@@ -2,6 +2,7 @@
   (:require [garden.def :refer [defstyles]]
             [reframe.components.menu.styles :as menu]
             [reframe.components.nav.styles :as nav]
+            [reframe.components.tasks.styles :as tasks]
             [reframe.styles.break :refer [break]]
             [reframe.styles.color :refer [color]]
             [reframe.styles.fonts :as fonts]
@@ -14,4 +15,5 @@
   [:.reframe
    layout/styles
    nav/styles
-   menu/styles])
+   menu/styles
+   tasks/styles])

@@ -1,6 +1,7 @@
 /*.log
 /target
 /*-init.clj
+/.lein-env
 /node_modules
 /resources/public/css
 /resources/public/js/compiled
